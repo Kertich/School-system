@@ -1,0 +1,11 @@
+<!-- <p>sm-dd-student works!</p> -->
+<form (ngSubmit)="addStudent()" #studentForm="ngForm">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" [(ngModel)]="student.name" required>
+    <label for="balance">Balance</label>
+    <input type="number" id="balance" name="balance" [(ngModel)]="student.balance" required>
+    <label for="details">Details</label>
+    <input type="text" id="details" name="details" [(ngModel)]="student.details">
+    <button type="submit">Add Student</button>
+  </form>
+  
