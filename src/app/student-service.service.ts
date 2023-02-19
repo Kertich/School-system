@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Student } from './sm-student-list/sm-student-list.component'
+import { Student } from './sm-dd-student/sm-dd-student.component';
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class StudentServiceService {
+export class StudentService {
+
+  
   private students: Student[] = [];
 
   addStudent(student: Student) {

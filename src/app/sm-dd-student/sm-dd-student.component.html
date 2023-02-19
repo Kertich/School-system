@@ -8,4 +8,24 @@
     <input type="text" id="details" name="details" [(ngModel)]="student.details">
     <button type="submit">Add Student</button>
   </form>
+
+  <input type="text" [(ngModel)]="balanceFilter">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Balance</th>
+      <th>Details</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students | smBalanceFilter:balanceFilter" [ngClass]="{ 'has-balance': student.balance > 0 }">
+      <td>{{ student.name }}</td>
+      <td>{{ student.balance | currency }}</td>
+      <td>{{ student.details }}</td>
+      <td><button (click)="updateBalance(student)">Update Balance</button></td>
+    </tr>
+  </tbody>
+</table>
   

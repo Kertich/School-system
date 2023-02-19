@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
- import { Student } from '../sm-dd-student/sm-dd-student.component';
+import { Student } from '../sm-dd-student/sm-dd-student.component';
 
 import { StudentService } from '../student-service.service'
-export interface Student {
-  name: string;
-  balance: number;
-  details: string;
-}
+
 
 @Component({
   selector: 'app-sm-student-list',
@@ -15,12 +11,21 @@ export interface Student {
 })
 export class SmStudentListComponent implements OnInit {
 
- students: Student[] = [];
+  
+  students: Student[] = [
+    // { name: 'John', balance: 500, details: 'Class A' },
+    // { name: 'Jane', balance: 0, details: 'Class B' },
+    // { name: 'Mark', balance: 200, details: 'Class C' },
+    // { name: 'Mary', balance: 0, details: 'Class A' }
+  ];
+  balanceFilter = '';
 
  constructor(private studentService: StudentService) { }
 
  ngOnInit() {
    this.students = this.studentService.getStudents();
+   console.log(this.students);
+   
  }
 
  addStudent(student: Student) {
@@ -37,22 +42,17 @@ export class SmStudentListComponent implements OnInit {
    this.studentService.updateStudent(student);
    this.students = this.studentService.getStudents();
  }
+
+ 
+
+updateBalance(student: Student) {
+  const balanceString = prompt('Enter new balance:');
+  if (balanceString !== null) {
+    const newBalance = parseInt(balanceString, 10);
+    student.balance = newBalance;
+  }
+}
 }
 
 
-    students: Student[] = [
-    { name: 'John', balance: 500, details: 'Class A' },
-    { name: 'Jane', balance: 0, details: 'Class B' },
-    { name: 'Mark', balance: 200, details: 'Class C' },
-    { name: 'Mary', balance: 0, details: 'Class A' }
-  ];
-  balanceFilter = '';
-
-  updateBalance(student: Student) {
-    const balanceString = prompt('Enter new balance:');
-    if (balanceString !== null) {
-      const newBalance = parseInt(balanceString, 10);
-      student.balance = newBalance;
-    }
-}
-}
+    

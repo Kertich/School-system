@@ -19,7 +19,7 @@ export class SmDdStudentComponent {
     details: ''
   };
   students: Student[] = [];
-
+  balanceFilter = '';
   addStudent() {
     this.students.push(this.student);
     this.student = {
@@ -27,5 +27,13 @@ export class SmDdStudentComponent {
       balance: 0,
       details: ''
     };
+}
+
+updateBalance(student: Student) {
+  const balanceString = prompt('Enter new balance:');
+  if (balanceString !== null) {
+    const newBalance = parseInt(balanceString, 10);
+    student.balance = newBalance;
+  }
 }
 }

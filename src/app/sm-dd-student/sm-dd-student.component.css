@@ -20,3 +20,24 @@ form {
     border-radius: 5px;
     cursor: pointer;
   }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  tr.balance-positive {
+    background-color: #cfc;
+  }
+  
+ 
